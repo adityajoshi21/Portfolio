@@ -90,10 +90,11 @@ let swiperTestimonial = new Swiper('.testimonial__container', {
     loop: true,
     grabCursor: true,
     spaceBetween:49,
+    autoplay: true,
     
    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next_',
+      prevEl: '.swiper-button-prev_',
     },
     berakpoints:{
         568:{
