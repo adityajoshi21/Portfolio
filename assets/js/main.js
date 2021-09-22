@@ -67,13 +67,12 @@ tabs.forEach(tab=> {
     })
 })
 
-/*==================== SERVICES MODAL ====================*/
-
 
 /*==================== PORTFOLIO SWIPER  ====================*/
 let swiperPortfolio = new Swiper('.portfolio__container', {
     cssMode: true,
     loop: true,
+    autoplay:true,
 
     navigation: {
       nextEl: '.swiper-button-next',
@@ -92,10 +91,9 @@ let swiperTestimonial = new Swiper('.testimonial__container', {
     grabCursor: true,
     spaceBetween:49,
     
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      dynamicBullets:true,
+   navigation: {
+      nextEl: '.swiper-button-next1',
+      prevEl: '.swiper-button-prev1',
     },
     berakpoints:{
         568:{
