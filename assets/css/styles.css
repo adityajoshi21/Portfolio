@@ -496,10 +496,10 @@ align-items: center;
     width: 80%;
 }
 .skills__javascript{
-    width: 70%;
+    width: 90%;
 }
 .skills__react{
-    width: 60%;
+    width: 80%;
 }
 
 .skills__node{
@@ -511,9 +511,7 @@ align-items: center;
 .skills__go{
     width: 50%;
 }
-.skills__python{
-    width: 50%;
-}
+
 .skills__figma{
     width: 70%;
 }
