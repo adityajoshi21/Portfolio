@@ -2,7 +2,7 @@
 const navMenu= document.getElementById('nav-menu'),
 navToggle=document.getElementById('nav-toggle'),
 navClose= document.getElementById('nav-close')
-
+const titles = ["WebApp Developer", "Backend Engineer", "Computer Networks Nerd", "Database Geek", "Cat Dad"];
 
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
@@ -83,6 +83,38 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
       clickable: true,
     },
   });
+
+  /*=============== FOR THE TYPEWRITER EFFECT ===============*/
+  const dynamicText = document.getElementById("dynamic-text");
+  let currentTitleIndex = 0;
+  let currentCharIndex = 0;
+  let isDeleting = false;
+  
+  function typeEffect() {
+    const currentTitle = titles[currentTitleIndex];
+    const displayedText = currentTitle.slice(0, currentCharIndex);
+
+    dynamicText.textContent = displayedText;
+
+    if (!isDeleting && currentCharIndex < currentTitle.length) {
+        currentCharIndex++;
+    } else if (isDeleting && currentCharIndex > 0) {
+        currentCharIndex--;
+    } else {
+        isDeleting = !isDeleting;
+        if (!isDeleting) {
+            currentTitleIndex = (currentTitleIndex + 1) % titles.length;
+        }
+    }
+
+    const typingSpeed = isDeleting ? 130 : 160;
+    const pauseTime = !isDeleting && currentCharIndex === currentTitle.length ? 1000 : 0;
+
+    setTimeout(typeEffect, typingSpeed + pauseTime);
+}
+
+typeEffect();
+  
 
 
 /*==================== TESTIMONIAL ====================*/

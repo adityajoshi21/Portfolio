@@ -326,6 +326,7 @@ align-items: center;
 }
 
 .home__description{
+    margin-top:  var(--mb-1);
     margin-bottom: var(--mb-2);
 }
 
