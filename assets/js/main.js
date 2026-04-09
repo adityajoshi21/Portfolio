@@ -92,14 +92,11 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
   
   function typeEffect() {
     const currentTitle = titles[currentTitleIndex];
-    const displayedText = currentTitle.slice(0, currentCharIndex);
-
-    dynamicText.textContent = displayedText;
 
     if (!isDeleting && currentCharIndex < currentTitle.length) {
-        currentCharIndex++;
+        ++currentCharIndex;
     } else if (isDeleting && currentCharIndex > 0) {
-        currentCharIndex--;
+       --currentCharIndex;
     } else {
         isDeleting = !isDeleting;
         if (!isDeleting) {
@@ -107,10 +104,15 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
         }
     }
 
-    const typingSpeed = isDeleting ? 130 : 160;
-    const pauseTime = !isDeleting && currentCharIndex === currentTitle.length ? 1000 : 0;
+    const displayedText = currentTitle.slice(0, currentCharIndex);
+    dynamicText.textContent = displayedText;
 
-    setTimeout(typeEffect, typingSpeed + pauseTime);
+    let delay = isDeleting ? 80 : 160;
+    if (!isDeleting && currentCharIndex === currentTitle.length) {
+        delay = 600; //pause after full word is typed
+    }
+
+    setTimeout(typeEffect, delay);
 }
 
 typeEffect();
